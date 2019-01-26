@@ -1,0 +1,31 @@
+{
+  "name": "fb-chat-buttons",
+  "version": "1.0.0",
+  "description": "",
+  "keywords": [],
+  "author": {
+    "name": "Mikołaj Palkiewicz",
+    "email": "xnerhu@gmail.com"
+  },
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/xnerhu/fb-chat-buttons.git"
+  },
+  "homepage": "https://github.com/xnerhu/fb-chat-buttons#readme",
+  "scripts": {
+    "dev": "nodemon src/index.ts",
+    "start": "ts-node src/index.ts"
+  },
+  "devDependencies": {
+    "@types/express": "4.16.1",
+    "@types/node": "10.12.18",
+    "nodemon": "1.18.9"
+  },
+  "dependencies": {
+    "body-parser": "1.18.3",
+    "express": "4.16.4",
+    "ts-node": "8.0.2",
+    "typescript": "3.2.4"
+  }
+}
