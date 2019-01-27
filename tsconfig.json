@@ -11,14 +11,11 @@
     "module": "commonjs",
     "target": "es6",
     "moduleResolution": "node",
-    "lib": ["esnext"],
-    "experimentalDecorators": true,
-    "skipDefaultLibCheck": true,
-    "skipLibCheck": true,
-    "declaration": true,
     "esModuleInterop": true,
+    "declaration": true,
 
     "baseUrl": "./"
   },
-  "exclude": ["node_modules", "build"]
+  "exclude": ["node_modules", "build"],
+  "include": ["src/**/*"]
 }
