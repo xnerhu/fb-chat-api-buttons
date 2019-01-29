@@ -1,5 +1,4 @@
 export const chatButtons = (req, res, next) => {
-  console.log(req);
-
+  const { id } = req.query;
   next();
 };
