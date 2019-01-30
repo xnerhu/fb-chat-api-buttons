@@ -1,3 +1,3 @@
-# facebook-chat-api-buttons
+# 🤖 Chat buttons
 
-Provides slightly better UX for [facebook chat bot](https://www.npmjs.com/package/facebook-chat-api).
+Provides slightly better UX for your facebook chat bot by adding interactive buttons.

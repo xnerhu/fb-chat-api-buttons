@@ -27,12 +27,12 @@ export class ChatButtons extends EventEmitter {
       const decoded = decodeURIComponent(data);
       const json = JSON.parse(decoded);
 
-      const isPrefetched =
+      const beingPrefetched =
         req.headers['user-agent'] === 'facebookexternalhit/1.1';
 
-      this.emit(isPrefetched ? 'prefetched' : 'click', json);
+      this.emit(beingPrefetched ? 'being-prefetched' : 'click', json);
 
-      res.send(linkView(!isPrefetched && json));
+      res.send(linkView(!beingPrefetched && json));
     } catch (err) {
       throw new Error(
         `Something went wrong with chat buttons! URL: ${req.originalUrl}`,
