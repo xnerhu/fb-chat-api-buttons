@@ -1,9 +1,9 @@
-import { stringify } from 'querystring';
-
 import Store from '../store';
+import { IButton } from '../interfaces';
 import { generateHash } from './hash';
 
-export const getPrefetchUrl = (id: string) => {
+export const getUrl = (btn: IButton, threadId: string) => {
   const hash = generateHash(24);
-  return `${Store.cbEndpoint}${stringify({ id, hash })}`;
+  const data = encodeURIComponent(JSON.stringify(btn));
+  return `${Store.endpoint}/data?=${data}&hash=${hash}`;
 };

@@ -1,5 +1,5 @@
 class Store {
-  public cbEndpoint: string;
+  public endpoint: string;
 
   public api: any;
 }
