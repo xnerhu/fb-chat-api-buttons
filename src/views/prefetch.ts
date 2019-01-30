@@ -1,4 +1,5 @@
 import { IButton } from '../interfaces';
+import { getMetaTags } from '../utils/meta-tags';
 
 export const prefetchView = ({ title, description, image }: IButton) => `
   <!DOCTYPE html>
@@ -6,10 +7,7 @@ export const prefetchView = ({ title, description, image }: IButton) => `
     <head>
       <meta charset="utf-8" />
       <title>${title}</title>
-      <meta property="og:title" content="${title}" />
-      ${description &&
-        `<meta property="og:description" content="${description}" />`}
-      ${image && `<meta property="og:image" content="${image}" />`}
+      ${getMetaTags({ title, description, image })}
     </head>
     <body>
       <h3>You can close this tab</h3>
