@@ -1,3 +1,3 @@
 export * from './interfaces';
-export * from './middleware';
+export * from './models/chat-buttons';
 export * from './utils';
