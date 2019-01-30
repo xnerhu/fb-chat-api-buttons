@@ -1,10 +1,10 @@
+import Store from '../store';
 import { IButton } from '../interfaces';
-import { getUrl } from './url';
+import { getPrefetchUrl } from './url';
 
-export const sendButton = (api: any, threadId: string, btn: IButton) => {
-  const { id } = btn;
+export const send = (threadId: string, btn: IButton) => {
   const msg = {
-    url: getUrl(id),
+    body: getPrefetchUrl(btn.id),
   };
-  api.sendMessage(msg, id);
+  Store.api.sendMessage(msg, threadId);
 };

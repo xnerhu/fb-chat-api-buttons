@@ -2,15 +2,14 @@ import { Request, Response, NextFunction } from 'express';
 
 import { IOptions } from '../interfaces';
 import { getPublicIp } from '../utils/ip';
+import Store from '../store';
 
-export const applyChatButtons = (options: IOptions) => {
-  const { app, path } = options;
+export const init = (options: IOptions) => {
+  const { app, path, address } = options;
   app.use(path, middleware);
-
-  console.log(getPublicIp());
+  Store.cbEndpoint = `${address || getPublicIp()}/callback/`;
 };
 
-const middleware = (req: Request, res: Response, next: NextFunction) => {
-  console.log(req.connection.remoteAddress);
+export const middleware = (req: Request, res: Response, next: NextFunction) => {
   next();
 };
