@@ -1,6 +1,6 @@
 {
-  "name": "facebook-chat-api-buttons",
-  "version": "1.0.0",
+  "name": "fb-chat-api-buttons",
+  "version": "1.0.1",
   "description": "🤖 Provides slightly better UX for your facebook chat bot by adding interactive buttons.",
   "keywords": [
     "facebook-chat-api",
@@ -17,9 +17,9 @@
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/xnerhu/facebook-chat-api-buttons.git"
+    "url": "git+https://github.com/xnerhu/fb-chat-api-buttons.git"
   },
-  "homepage": "https://github.com/xnerhu/facebook-chat-api-buttons#readme",
+  "homepage": "https://github.com/xnerhu/fb-chat-api-buttons#readme",
   "publishConfig": {
     "access": "public"
   },

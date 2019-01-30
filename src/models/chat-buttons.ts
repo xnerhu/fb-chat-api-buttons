@@ -18,7 +18,7 @@ export class ChatButtons extends EventEmitter {
   public send(btn: IButton, threadId: string) {
     const { endpoint, api } = this.options;
     const url = getUrl(endpoint, btn, threadId);
-    api.sendMessage({ body: url }, threadId);
+    api.sendMessage({ url }, threadId);
   }
 
   private middleware = (req: Request, res: Response, next: NextFunction) => {
@@ -29,6 +29,8 @@ export class ChatButtons extends EventEmitter {
 
       const beingPrefetched =
         req.headers['user-agent'] === 'facebookexternalhit/1.1';
+
+      console.log(beingPrefetched);
 
       this.emit(beingPrefetched ? 'being-prefetched' : 'click', json);
 
