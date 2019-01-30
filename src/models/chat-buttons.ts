@@ -3,7 +3,7 @@ import EventEmitter from 'events';
 
 import { IOptions, IButton } from '../interfaces';
 import { getUrl } from '../utils';
-import { prefetchView } from '../views/prefetch';
+import { linkView } from '../views/link';
 
 export class ChatButtons extends EventEmitter {
   constructor(public options: IOptions) {
@@ -27,13 +27,17 @@ export class ChatButtons extends EventEmitter {
       const decoded = decodeURIComponent(data);
       const json = JSON.parse(decoded);
 
-      this.emit('click', json);
+      const isPrefetched =
+        req.headers['user-agent'] === 'facebookexternalhit/1.1';
 
-      res.send(prefetchView(json));
+      this.emit(isPrefetched ? 'prefetched' : 'click', json);
+
+      res.send(linkView(!isPrefetched && json));
     } catch (err) {
       throw new Error(
         `Something went wrong with chat buttons! URL: ${req.originalUrl}`,
       );
     }
+    next();
   };
 }
