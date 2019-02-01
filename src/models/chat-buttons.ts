@@ -54,7 +54,7 @@ export class ChatButtons {
     const decoded = decodeURIComponent(data);
 
     const btn: IButton | IRichButton = JSON.parse(decoded);
-    const isRichBtn = (btn as IRichButton).description != null;
+    const isRichBtn = (btn as IRichButton).title != null;
 
     if (isRichBtn) {
       const richBtn = btn as IRichButton;
