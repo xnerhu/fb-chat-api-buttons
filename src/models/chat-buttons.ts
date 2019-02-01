@@ -1,13 +1,17 @@
 import { NextFunction, Request, Response } from 'express';
-import EventEmitter from 'events';
 
-import { IOptions, IButton } from '../interfaces';
-import { getUrl } from '../utils';
-import { linkView } from '../views/link';
+import { IOptions, IButton, IRichButton, IButtonCallback } from '../interfaces';
+import { generateUrl } from '../utils';
+import { prefetchView, clickView } from '../views';
 
-export class ChatButtons extends EventEmitter {
+interface ICallbacks {
+  [key: string]: IButtonCallback;
+}
+
+export class ChatButtons {
+  private callbacks: ICallbacks = {};
+
   constructor(public options: IOptions) {
-    super();
     options.app.use(options.path, this.middleware);
   }
 
@@ -15,24 +19,35 @@ export class ChatButtons extends EventEmitter {
     this.options.api = api;
   }
 
-  public send(btn: IButton, threadId: string) {
+  public send(btn: IButton | IRichButton, threadId: string) {
     const { endpoint, api } = this.options;
-    const url = getUrl(endpoint, btn, threadId);
+    const url = generateUrl(endpoint, btn, threadId);
+    this.attachCallback(btn);
     api.sendMessage({ url }, threadId);
+  }
+
+  private attachCallback(btn: IButton | IRichButton) {
+    const { id } = btn;
+    if (this.callbacks[id] == null) {
+      this.callbacks[id] = btn.onClick;
+    }
   }
 
   private middleware = (req: Request, res: Response, next: NextFunction) => {
     try {
-      const { data } = req.query;
+      const beingPrefetched = req.headers['user-agent'].includes('facebook');
+      const { data, threadId } = req.query;
       const decoded = decodeURIComponent(data);
-      const json = JSON.parse(decoded);
 
-      const beingPrefetched = req.headers['user-agent'].includes(
-        'facebookexternalhit/',
-      );
+      const btn: IButton | IRichButton = JSON.parse(decoded);
+      const isRichBtn = (btn as IRichButton).description != null;
 
-      this.emit(beingPrefetched ? 'being-prefetched' : 'click', json);
-      res.send(linkView(beingPrefetched && json));
+      if (beingPrefetched && isRichBtn) {
+        res.send(prefetchView(btn as IRichButton));
+      } else {
+        this.callbacks[btn.id](btn, threadId);
+        res.send(clickView(threadId));
+      }
     } catch (err) {
       throw new Error(
         `Something went wrong with chat buttons! URL: ${req.originalUrl}`,

@@ -1,18 +1,12 @@
-import { IButton } from '../interfaces';
+import { IButton, IRichButton } from '../interfaces';
+import { generateHash } from './hash';
 
-const generateHash = (
-  length: number,
-  possible: string = 'abcdefghijklmnopqrstuvwxyz0123456789',
+export const generateUrl = (
+  endpoint: string,
+  btn: IButton | IRichButton,
+  threadId: string,
 ) => {
-  let id = '';
-  for (let i = 0; i < length; i++) {
-    id += possible.charAt(Math.floor(Math.random() * possible.length));
-  }
-  return id;
-};
-
-export const getUrl = (endpoint: string, btn: IButton, threadId: string) => {
   const hash = generateHash(24);
   const data = encodeURIComponent(JSON.stringify(btn));
-  return `${endpoint}?data=${data}&hash=${hash}`;
+  return `${endpoint}?data=${data}&threadId=${threadId}&hash=${hash}`;
 };
