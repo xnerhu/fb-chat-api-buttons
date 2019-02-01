@@ -1,7 +1,9 @@
 export const clickView = (threadId: string) => `
   <!DOCTYPE html>
   <html>
-    <head></head>
+    <head>
+      <title>You can close this tab</title>
+    </head>
     <body>
       <h3>You can close this tab</h3>
       <script>
