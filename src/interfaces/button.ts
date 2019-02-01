@@ -1,5 +1,5 @@
 export interface IButtonBase {
-  id: string;
+  id?: string;
   metadata?: any;
   onClick?: IButtonCallback;
 }

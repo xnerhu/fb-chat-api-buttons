@@ -3,6 +3,7 @@ import { NextFunction, Request, Response } from 'express';
 import { IOptions, IButton, IRichButton, IButtonCallback } from '../interfaces';
 import { generateUrl } from '../utils';
 import { prefetchView, clickView } from '../views';
+import { generateHash } from 'src/utils/hash';
 
 interface ICallbacks {
   [key: string]: IButtonCallback;
@@ -20,8 +21,11 @@ export class ChatButtons {
   }
 
   public send(btn: IButton | IRichButton, threadId: string) {
+    btn.id = btn.id || generateHash(8);
+
     const { endpoint, api } = this.options;
     const url = generateUrl(endpoint, btn, threadId);
+
     this.attachCallback(btn);
     api.sendMessage({ url }, threadId);
   }
