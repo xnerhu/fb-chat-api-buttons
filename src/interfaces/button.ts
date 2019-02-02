@@ -7,7 +7,4 @@ export interface IButton {
   onClick?: IButtonCallback;
 }
 
-export type IButtonCallback = (
-  btn?: IButton,
-  threadId?: string,
-) => void;
+export type IButtonCallback = (btn?: IButton, threadId?: string) => void;

@@ -1,3 +1,8 @@
+/**
+ * Generates a random string in given length.
+ * @param length Range
+ * @param possible Possible characters
+ */
 export const generateHash = (
   length: number,
   possible: string = 'abcdefghijklmnopqrstuvwxyz0123456789',
