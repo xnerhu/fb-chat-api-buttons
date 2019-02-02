@@ -32,7 +32,6 @@
   },
   "dependencies": {
     "@types/node": "10.12.18",
-    "jimp": "0.6.0",
     "typescript": "3.2.4"
   },
   "devDependencies": {

@@ -1,9 +1,9 @@
-import { IButton, IRichButton } from '../interfaces';
+import { IButton } from '../interfaces';
 import { generateHash } from './hash';
 
 export const generateUrl = (
   endpoint: string,
-  btn: IButton | IRichButton,
+  btn: IButton,
   threadId: string,
 ) => {
   const hash = generateHash(24);

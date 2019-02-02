@@ -1,7 +1,7 @@
-import { IRichButton } from '../interfaces';
+import { IButton } from '../interfaces';
 import { getMetaTags } from '../utils/meta-tags';
 
-export const prefetchView = ({ title, description, image }: IRichButton) => `
+export const prefetchView = ({ title, description, image }: IButton) => `
   <!DOCTYPE html>
   <html>
     <head>

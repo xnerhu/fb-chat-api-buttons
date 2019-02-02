@@ -1,21 +1,13 @@
-export interface IButtonBase {
+export interface IButton {
   id?: string;
   metadata?: any;
+  title: string;
+  description?: string;
+  image?: string;
   onClick?: IButtonCallback;
 }
 
 export type IButtonCallback = (
-  btn?: IButton | IRichButton,
+  btn?: IButton,
   threadId?: string,
 ) => void;
-
-export interface IButton extends IButtonBase {
-  text: string;
-  color?: string;
-}
-
-export interface IRichButton extends IButtonBase {
-  title: string;
-  description?: string;
-  image?: string;
-}
