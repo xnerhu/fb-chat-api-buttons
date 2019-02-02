@@ -5,9 +5,9 @@
   [![NPM](https://img.shields.io/npm/v/fb-chat-api-buttons.svg?style=flat-square)](https://www.npmjs.com/package/fb-chat-api-buttons)
 
   An extension for [`facebook-chat-api`](https://github.com/Schmavery/facebook-chat-api), which provides slightly better UX for your chat bot by adding buttons.
-   
-   > NOTE: To use buttons, you will need to have a public server.
 </div>
+
+> NOTE: To use buttons, you will need to have a public server.
 
 ## The Problem
 Current use of facebook chat bots, works by sending a text command. Unfortunately it's not enough intuitive. The workaround are buttons, which help with some UX problems.
@@ -76,12 +76,13 @@ app.listen(3000, () => {
 
 # Documentation
 
-* [`ChatButtons`](#Class%20ChatButtons)
-* [`ChatButtons.setApi`](#ChatButtons.setApi)
-* [`ChatButtons.send`](#ChatButtons.send)
+* [`ChatButtons`](#ChatButtons)
+* [`ChatButtons.setApi`](#setApi)
+* [`ChatButtons.send`](#send)
 * [`Interface IOptions`](#IOptions)
 * [`Interface IButton`](#IButton)
 
+<a name="ChatButtons"></a>
 ## Class ChatButtons
 **`new ChatButtons(options: IOptions)`**
 
@@ -94,6 +95,7 @@ const buttons = new ChatButtons({
 });
 ```
 
+<a name="setApi"></a>
 ## ChatButtons.setApi
 **Arguments:**
 * `api: any`
@@ -105,6 +107,7 @@ login(botCredentials, (err, api) => {
 });
 ```
 
+<a name="send"></a>
 ## ChatButtons.send
 **Arguments:**
 * `btn: IButton`
@@ -126,6 +129,7 @@ buttons.send(
 
 ```
 
+<a name="IOptions"></a>
 ## IOptions
 ```ts
 interface {
@@ -136,6 +140,7 @@ interface {
 }
 ```
 
+<a name="IButton"></a>
 ## IButton
 ```ts
 interface {
