@@ -70,7 +70,9 @@ export class ChatButtons {
     else {
       res.send(clickView(threadId));
       const callback = this.callbacks[btn.id];
-      if (callback != null) callback(threadId);
+      if (callback != null) {
+        callback(btn, threadId);
+      }
     }
     next();
   };
