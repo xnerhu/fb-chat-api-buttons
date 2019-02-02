@@ -1,4 +1,6 @@
 <div align="center">
+  ![Chat buttons](screenshots/button.gif)
+  
   <h1>Chat Buttons</h1>
 
   [![Travis](https://img.shields.io/travis/xNerhu/fb-chat-api-buttons.svg?style=flat-square)](https://travis-ci.org/xNerhu/fb-chat-api-buttons.svg)
@@ -79,8 +81,8 @@ app.listen(3000, () => {
 * [`ChatButtons`](#ChatButtons)
 * [`ChatButtons.setApi`](#setApi)
 * [`ChatButtons.send`](#send)
-* [`Interface IOptions`](#IOptions)
-* [`Interface IButton`](#IButton)
+* [`IOptions`](#IOptions)
+* [`IButton`](#IButton)
 
 <a name="ChatButtons"></a>
 ## Class ChatButtons
