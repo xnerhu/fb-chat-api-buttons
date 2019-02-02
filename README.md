@@ -8,8 +8,6 @@
   An extension for [`facebook-chat-api`](https://github.com/Schmavery/facebook-chat-api), which provides slightly better UX for your chat bot by adding buttons.
 </div>
 
-> NOTE: To use buttons, you will need to have a public server.
-
 ## The Problem
 Current use of facebook chat bots, works by sending a text command. Unfortunately it's not enough intuitive. The workaround are buttons, which help with some UX problems.
 
@@ -31,6 +29,8 @@ You will get this card. As you see, it has title and description.
 [`Chat Buttons`](https://github.com/xnerhu/fb-chat-api-buttons) handles these meta informations which goes to facebook and handles if button has been clicked.
 
 # Installing
+> NOTE: To use buttons, you will need to have a public server.
+
 To install Chat Buttons, run in terminal:
 ```bash
 $ npm install fb-chat-api-buttons
