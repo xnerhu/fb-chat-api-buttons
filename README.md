@@ -1,8 +1,7 @@
-<div align="center">
-  ![Chat buttons](screenshots/button.gif)
-  
+<div align="center">  
+  <img src="https://github.com/xNerhu/fb-chat-api-buttons/blob/master/screenshots/button.gif?raw=true">
   <h1>Chat Buttons</h1>
-
+  
   [![Travis](https://img.shields.io/travis/xNerhu/fb-chat-api-buttons.svg?style=flat-square)](https://travis-ci.org/xNerhu/fb-chat-api-buttons.svg)
   [![NPM](https://img.shields.io/npm/v/fb-chat-api-buttons.svg?style=flat-square)](https://www.npmjs.com/package/fb-chat-api-buttons)
 
