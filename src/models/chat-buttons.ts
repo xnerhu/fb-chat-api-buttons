@@ -29,15 +29,19 @@ export class ChatButtons {
    * Sends a button.
    */
   public send(btn: IButton, threadId: string) {
-    const { endpoint, api } = this.options;
-    // If button hasn't got an id, then set a random one.
-    btn.id = btn.id || generateHash(8);
-    // Generate a callback url.
-    const url = generateUrl(endpoint, btn, threadId);
-    // Store button callback in memory.
-    this.attachCallback(btn);
-    // Send button.
-    api.sendMessage({ url }, threadId);
+    return new Promise((resolve: (info: any) => void) => {
+      const { endpoint, api } = this.options;
+      // If button hasn't got an id, then set a random one.
+      btn.id = btn.id || generateHash(8);
+      // Generate a callback url.
+      const url = generateUrl(endpoint, btn, threadId);
+      // Store button callback in memory.
+      this.attachCallback(btn);
+      // Send button.
+      api.sendMessage({ url }, threadId, (err, info) => {
+        resolve(info);
+      });
+    });
   }
 
   /**
