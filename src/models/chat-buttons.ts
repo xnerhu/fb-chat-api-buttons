@@ -28,11 +28,15 @@ export class ChatButtons {
   /**
    * Sends a button.
    */
-  public send(btn: IButton, threadId: string) {
+  public send(btn: IButton, threadId: string, metadata?: any) {
     return new Promise((resolve: (info: any) => void) => {
       const { endpoint, api } = this.options;
       // If button hasn't got an id, then set a random one.
       btn.id = btn.id || generateHash(8);
+      // Set meta data
+      if(metadata != null) {
+        btn.metadata = Object.assign({}, btn.metadata || {}, metadata);
+      }
       // Generate a callback url.
       const url = generateUrl(endpoint, btn, threadId);
       // Store button callback in memory.

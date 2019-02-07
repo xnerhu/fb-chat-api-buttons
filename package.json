@@ -1,6 +1,6 @@
 {
   "name": "fb-chat-api-buttons",
-  "version": "1.0.9",
+  "version": "1.0.10",
   "description": "🤖 Provides slightly better UX for your facebook chat bot by adding interactive buttons.",
   "keywords": [
     "facebook-chat-api",
