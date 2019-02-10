@@ -1,6 +1,6 @@
 {
   "name": "fb-chat-api-buttons",
-  "version": "1.0.10",
+  "version": "1.1.2",
   "description": "An extension for facebook-chat-api, which provides slightly better UX for your chat bot by adding buttons.",
   "keywords": [
     "facebook-chat-api",
@@ -32,7 +32,7 @@
   },
   "dependencies": {
     "@types/node": "10.12.18",
-    "typescript": "3.2.4"
+    "typescript": "3.3.1"
   },
   "devDependencies": {
     "@types/express": "4.16.1"
